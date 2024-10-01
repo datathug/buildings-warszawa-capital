@@ -95,10 +95,8 @@ class ChatGptApi(OpenAI):
         self.last_call_elapsed = time.perf_counter() - b
 
         comp: ChatCompletion = raw_comp.parse()
-        headers = raw_comp.headers
+        # headers = raw_comp.headers
         self.results.append(comp)
-
-        # TODO use headers info to keep track of tokens
 
         try:
             self.session_tokens_in += comp.usage.prompt_tokens
